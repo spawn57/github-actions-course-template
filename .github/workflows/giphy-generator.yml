@@ -10,11 +10,10 @@ on:
 
 jobs:
   giphy-generator:
-    name: GIPHY generator
     runs-on: ubuntu-latest
+    
     steps:
       - name: GIPHY Generator
-        id: giphy_generator
         uses: iamhughes/giphy-generator@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
