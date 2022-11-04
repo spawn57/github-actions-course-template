@@ -9,12 +9,16 @@ on:
     types: [created, edited]
 
 jobs:
-  sup:
+  giphy-generator:
+    name: GIPHY generator
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: npm install and build webpack
-      run: |
-        npm install
-        npm run build
-
+      - name: GIPHY Generator
+        id: giphy_generator
+        uses: iamhughes/giphy-generator@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }} 
+        with:
+          rating: 'g'
+          lang: 'en'
